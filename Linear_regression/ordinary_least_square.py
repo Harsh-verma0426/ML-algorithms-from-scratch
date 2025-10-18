@@ -1,27 +1,45 @@
 """
-Linear Regression using Ordinary Least Squares (OLS)
-----------------------------------------------------
-This script implements simple linear regression from scratch
-using the closed-form (OLS) solution without any ML libraries.
+Linear Regression (Ordinary Least Squares)
+------------------------------------------
+Implements simple linear regression from scratch using OLS method.
 
 """
 
 import numpy as np
 
-# Sample data
-x = np.array([1, 2, 3, 4, 5])
-y = np.array([2, 4, 5, 4, 5])
 
-# Calculate slope (m) and intercept (c)
-m = np.sum((x - np.mean(x)) * (y - np.mean(y))) / np.sum((x - np.mean(x)) ** 2)
-c = np.mean(y) - m * np.mean(x)
+class LinearRegressionOLS:
+    def __init__(self):
+        # Initialize slope and intercept.
+        self.m = None
+        self.c = None
 
-print(f"Slope (m): {m:.4f}")
-print(f"Intercept (c): {c:.4f}")
+    def fit(self, x, y):
+        # Fit the model to the data using the OLS formula.
+        x = np.array(x)
+        y = np.array(y)
 
-# Prediction function
-def predict(new_x):
-    return m * new_x + c
+        # Calculate slope (m) and intercept (c)
+        self.m = np.sum((x - np.mean(x)) * (y - np.mean(y))) / np.sum((x - np.mean(x)) ** 2)
+        self.c = np.mean(y) - self.m * np.mean(x)
 
-# Example prediction
-print("Predicted value for x=6:", predict(6))
+    def predict(self, x):
+        # Predict y values for given x.
+        if self.m is None or self.c is None:
+            raise ValueError("Call fit(x, y) first.")
+        return self.m * np.array(x) + self.c
+
+    def coefficients(self):
+        # Return the slope and intercept.
+        return self.m, self.c
+
+
+if __name__ == "__main__":
+    x = [1, 2, 3, 4, 5]
+    y = [2, 4, 5, 4, 5]
+
+    model = LinearRegressionOLS()
+    model.fit(x, y)
+
+    print(model)
+    print("Predicted value for x=6:", model.predict(6))
