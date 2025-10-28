@@ -4,6 +4,7 @@ This repository contains implementations of basic ML algorithms coded using only
 
 ## Algorithms Implemented
 - Linear Regression (ordinary least square, gradient descent)
+- Logistic Regression (gradient descent)
 
 ## Purpose
 To understand the math and logic behind core ML models.
