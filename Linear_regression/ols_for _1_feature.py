@@ -19,9 +19,17 @@ class LinearRegressionOLS:
         x = np.array(x)
         y = np.array(y)
 
+        # Calculate means of x and y    
+        x_mean = np.mean(x)
+        y_mean = np.mean(y)
+
+        num = np.sum((x - x_mean) * (y - y_mean))    # numerator
+        den = np.sum((x - x_mean)**2)                # denominator
+
         # Calculate slope (m) and intercept (c)
-        self.m = np.sum((x - np.mean(x)) * (y - np.mean(y))) / np.sum((x - np.mean(x)) ** 2)
-        self.c = np.mean(y) - self.m * np.mean(x)
+        self.m = num / den
+        # c = mean(y) - m * mean(x)
+        self.c = y_mean - self.m * x_mean
 
     def predict(self, x):
         # Predict y values for given x.
