@@ -16,8 +16,8 @@ class Single_OLS:
 
     def fit(self, x, y):
         # Fit the model to the data using the OLS formula.
-        x = np.array(x)
-        y = np.array(y)
+        x = np.array(x).flatten()
+        y = np.array(y).flatten()
 
         # Calculate means of x and y    
         x_mean = np.mean(x)
@@ -35,7 +35,7 @@ class Single_OLS:
         # Predict y values for given x.
         if self.m is None or self.c is None:
             raise ValueError("Call fit(x, y) first.")
-        return self.m * np.array(x) + self.c
+        return self.m * np.array(x).flatten() + self.c
 
     def coefficients(self):
         # Return the slope and intercept.
