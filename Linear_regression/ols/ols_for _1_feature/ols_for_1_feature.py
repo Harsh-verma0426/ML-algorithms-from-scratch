@@ -44,7 +44,7 @@ class Single_OLS:
 
 # Testing
 if __name__ == "__main__":
-    x = [1, 2, 3, 4, 5]
+    x = [1, 2, 3, 4, 5] 
     y = [2, 4, 5, 4, 5]
 
     model = Single_OLS()
