@@ -1,5 +1,5 @@
 """
-Linear Regression (Ordinary Least Squares)
+Linear Regression (Ordinary Least Squares) for 1 Feature
 ------------------------------------------
 Implements simple linear regression from scratch using OLS method.
 
@@ -8,7 +8,7 @@ Implements simple linear regression from scratch using OLS method.
 import numpy as np
 
 
-class LinearRegressionOLS:
+class Single_OLS:
     def __init__(self):
         # Initialize slope and intercept.
         self.m = None
@@ -42,11 +42,12 @@ class LinearRegressionOLS:
         return self.m, self.c
 
 
+# Testing
 if __name__ == "__main__":
     x = [1, 2, 3, 4, 5]
     y = [2, 4, 5, 4, 5]
 
-    model = LinearRegressionOLS()
+    model = Single_OLS()
     model.fit(x, y)
 
     print(model)

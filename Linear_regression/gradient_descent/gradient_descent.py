@@ -53,6 +53,7 @@ class LinearRegressionGD:
         return {"slope": self.m, "intercept": self.c}
 
 
+# Testing
 if __name__  == "__main__":
     model = LinearRegressionGD()
     x = np.array([1, 2, 3, 4, 5])
