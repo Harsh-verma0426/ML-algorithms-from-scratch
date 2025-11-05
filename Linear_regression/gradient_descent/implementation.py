@@ -57,7 +57,7 @@ y = y.values
 x_scaled = (x - np.mean(x)) / np.std(x) 
 y_scaled = (y - np.mean(y)) / np.std(y)
 
-# Train gradient descent on SCALED data
+# Train gradient descent on SCALED data 
 model_scratch = LinearRegressionGD()
 model_scratch.iteration(20000).learning_rate(0.01).fit(x_scaled, y_scaled)
 
