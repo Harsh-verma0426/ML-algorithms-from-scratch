@@ -54,7 +54,7 @@ x = X.values.flatten()
 y = y.values
 
 # ---- SCALE DATA ---- #
-x_scaled = (x - np.mean(x)) / np.std(x)
+x_scaled = (x - np.mean(x)) / np.std(x) 
 y_scaled = (y - np.mean(y)) / np.std(y)
 
 # Train gradient descent on SCALED data
