@@ -27,8 +27,8 @@ class LinearRegressionGD:
         return self  # Required for chaining
     
     def fit(self,x,y):
-        x = np.array(x)
-        y = np.array(y)
+        x = np.array(x).flatten()
+        y = np.array(y).flatten()
 
         n = len(x)
 
