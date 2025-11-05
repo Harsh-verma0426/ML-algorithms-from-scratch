@@ -3,7 +3,7 @@
 This repository contains implementations of basic ML algorithms coded using only NumPy — no sklearn magic!
 
 ## Algorithms Implemented
-- Linear Regression (ordinary least square, gradient descent)
+- Linear Regression (ordinary least square(single and multiple features), gradient descent)
 - Logistic Regression (gradient descent)
 
 ## Purpose
