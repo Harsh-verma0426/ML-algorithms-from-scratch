@@ -9,13 +9,7 @@ The goal is to deeply understand the **math, logic, and behavior** behind real-w
 
 ### 🔹 Linear Regression
 
-* Ordinary Least Squares (Single & Multiple Features)
-* Gradient Descent (manual implementation)
-* Scikit-learn comparison (`LinearRegression`)
-
 ### 🔹 Logistic Regression
-
-* Gradient Descent (manual implementation)
 
 ---
 
@@ -35,7 +29,6 @@ To explore how machine learning algorithms work *under the hood* by:
 * **NumPy**
 * **Matplotlib**
 * **Pandas**
-* **Scikit-learn** (for validation & comparison)
 
 ---
 
