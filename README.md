@@ -11,6 +11,7 @@ The goal is to deeply understand the **math, logic, and behavior** behind real-w
 
 ### 🔹 Logistic Regression
 
+### 🔹 k-Nearest Neighbors
 ---
 
 ## 🎯 Purpose
@@ -27,14 +28,11 @@ To explore how machine learning algorithms work *under the hood* by:
 
 * **Python 3**
 * **NumPy**
-* **Matplotlib**
-* **Pandas**
 
 ---
 
 ## 💡 Future Additions
 
-* k-Nearest Neighbors
 * Decision Trees
 
 ---
