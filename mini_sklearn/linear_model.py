@@ -30,7 +30,7 @@ class LinearRegression:
     def _gd(self, X, y):
         n, d = X.shape
         self.coef_ = np.zeros(d)
-        for _ in range(iter):
+        for _ in range(self.iter):
             y_pred = (X @ self.coef_) + self.intercept_
 
             dw = (-2/n)* (X.T @ (y-y_pred))
@@ -70,7 +70,7 @@ class LogisticRegression:
         n = len(X)
         shape = X.shape[1]
         self.coef_ = np.zeros(shape)
-        for _ in range(iter):
+        for _ in range(self.iter):
             z = (X @ self.coef_) + self.intercept_
             y_pred = self.sigmoid(z)
             
