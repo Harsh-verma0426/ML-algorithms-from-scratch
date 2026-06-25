@@ -63,7 +63,7 @@ class LogisticRegression:
         if self.iter<=0 or self.learning_rate<=0:
             raise ValueError("Iter or learning rate can't be zero or less than zero")
 
-    def sigmoid(z):
+    def sigmoid(self, z):
         return 1/(1+np.exp(-z))
     
     def fit(self, X, y):
