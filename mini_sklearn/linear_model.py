@@ -6,13 +6,14 @@ Linear Regression And Logistic Regression
 import numpy as np
 
 class LinearRegression:
-    def __init__(self, method='gd', iter=100, learning_rate=0.01):
+    def __init__(self, method='ols', iter=1000, learning_rate=0.01):
         # Initialization of Parameters
         self.coef_ = None
         self.intercept_ = 0
         self.method = method
         self.iter = iter
         self.learning_rate = learning_rate
+        self.loss_history = []
 
         if self.iter<=0 or self.learning_rate<=0:
             raise ValueError("Iter or learning rate can't be zero or less than zero")
@@ -37,6 +38,8 @@ class LinearRegression:
             db = (-2/n)* np.sum(y-y_pred)
             self.coef_ -= dw*self.learning_rate
             self.intercept_ -= db*self.learning_rate
+            loss = np.mean((y - y_pred) ** 2)
+            self.loss_history.append(loss)
 
         return self
     
