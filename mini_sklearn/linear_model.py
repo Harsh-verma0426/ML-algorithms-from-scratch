@@ -6,16 +6,16 @@ Linear Regression And Logistic Regression
 import numpy as np
 
 class LinearRegression:
-    def __init__(self, method='ols', iter=1000, learning_rate=0.01):
+    def __init__(self, method='ols', maxiter=1000, learning_rate=0.01):
         # Initialization of Parameters
         self.coef_ = None
         self.intercept_ = 0
         self.method = method
-        self.iter = iter
+        self.maxiter = maxiter
         self.learning_rate = learning_rate
         self.loss_history = []
 
-        if self.iter<=0 or self.learning_rate<=0:
+        if self.maxiter<=0 or self.learning_rate<=0:
             raise ValueError("Iter or learning rate can't be zero or less than zero")
     
     def _ols(self, X, y):
@@ -31,7 +31,7 @@ class LinearRegression:
     def _gd(self, X, y):
         n, d = X.shape
         self.coef_ = np.zeros(d)
-        for _ in range(self.iter):
+        for _ in range(self.maxiter):
             y_pred = (X @ self.coef_) + self.intercept_
 
             dw = (-2/n)* (X.T @ (y-y_pred))
@@ -57,13 +57,13 @@ class LinearRegression:
 
 
 class LogisticRegression:
-    def __init__(self, iter=100, learning_rate=0.01):
+    def __init__(self, maxiter=1000, learning_rate=0.01):
         self.coef_ = np.array([])
         self.intercept_ = 0
-        self.iter = iter
+        self.maxiter = maxiter
         self.learning_rate = learning_rate
 
-        if self.iter<=0 or self.learning_rate<=0:
+        if self.maxiter<=0 or self.learning_rate<=0:
             raise ValueError("Iter or learning rate can't be zero or less than zero")
 
     def sigmoid(self, z):
@@ -73,7 +73,7 @@ class LogisticRegression:
         n = len(X)
         shape = X.shape[1]
         self.coef_ = np.zeros(shape)
-        for _ in range(self.iter):
+        for _ in range(self.maxiter):
             z = (X @ self.coef_) + self.intercept_
             y_pred = self.sigmoid(z)
             
