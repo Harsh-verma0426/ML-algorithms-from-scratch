@@ -1,11 +1,25 @@
 import numpy as np
 
-def train_test_split(X, y, test_size):
-
+def train_test_split(
+                X,
+                y,
+                test_size=0.2,
+                train_size=None,
+                random_state=None,
+                shuffle=True
+            ):
+    
+    X = np.asarray(X)
+    y = np.asarray(y)
     n = len(X)
     indices = np.arange(n)
-    np.random.shuffle(indices)
+    if random_state is not None:
+        np.random.seed(random_state)
+    if shuffle:
+        np.random.shuffle(indices)
 
+    if train_size is not None:
+        test_size = 1-train_size
     split_idx = int(n*(1-test_size))
 
     train_idx = indices[:split_idx]
