@@ -14,9 +14,9 @@ This implementation trains the model using Gradient Descent and predicts class l
 
 The linear model is
 
-\[
+```text
 z = Xw + b
-\]
+```
 
 where
 
@@ -32,9 +32,9 @@ Instead of using the linear output directly, Logistic Regression passes it throu
 
 The sigmoid function maps any real-valued input into the range (0, 1).
 
-\[
-\sigma(z)=\frac{1}{1+e^{-z}}
-\]
+```text
+σ(z) = 1 / (1 + e^(-z))
+```
 
 The output represents the predicted probability of the positive class.
 
@@ -59,14 +59,9 @@ The threshold can be adjusted depending on the application.
 
 This implementation minimizes Binary Cross-Entropy Loss.
 
-\[
-L = -\frac{1}{n}\sum_{i=1}^{n}
-\left(
-y_i\log(\hat y_i)
-+
-(1-y_i)\log(1-\hat y_i)
-\right)
-\]
+```text
+Loss = -(1/n) Σ [ y log(ŷ) + (1-y) log(1-ŷ) ]
+```
 
 Gradient Descent iteratively updates the model parameters to minimize this loss.
 

@@ -17,9 +17,9 @@ The implementation follows an API similar to scikit-learn.
 
 The prediction for each sample is computed as
 
-[
-\hat{y}=Xw+b
-]
+```text
+ŷ = Xw + b
+```
 
 where
 
@@ -34,9 +34,9 @@ where
 
 Training minimizes the Mean Squared Error (MSE):
 
-[
-MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2
-]
+```text
+MSE = (1/n) Σ (y - ŷ)²
+```
 
 Lower MSE indicates a better fit to the training data.
 
