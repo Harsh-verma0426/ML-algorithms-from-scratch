@@ -23,7 +23,7 @@ A lightweight Python library implementing classical machine learning algorithms 
 
 ### Decision Trees
 
-* 🚧 Decision Tree Classifier (In Progress)
+* ✅ Decision Tree Classifier
 
 ### Metrics
 
@@ -103,7 +103,7 @@ print(score)
 * [x] Logistic Regression
 * [x] KNN Regressor
 * [x] KNN Classifier
-* [ ] Decision Tree
+* [x] Decision Tree
 * [ ] Random Forest
 * [ ] Naive Bayes
 * [ ] K-Means
