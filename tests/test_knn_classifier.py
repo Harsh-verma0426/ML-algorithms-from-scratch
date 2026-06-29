@@ -12,8 +12,6 @@ def test_fit_runs():
 
 def test_predict_matches_training_data():
 
-    # maxiter is needed here because default maxiter is 1000 which is low for accurate prediction
-    # lbfgs which sklearn uses is future score
     model = KNeighborsClassifier(n_neighbors=3) 
 
     model.fit(X, y)
