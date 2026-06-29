@@ -26,3 +26,19 @@ def test_prediction_shape():
     pred_ = model.predict(X)
 
     assert pred_.shape == (6,)
+
+def test_predictions_are_binary():
+
+    model = KNeighborsClassifier(n_neighbors=3)
+    model.fit(X, y)
+    pred = model.predict(X)
+
+    assert np.all(np.isin(pred,[0,1]))
+
+def test_prediction_labels_exist_in_training_labels():
+
+    model = KNeighborsClassifier(n_neighbors=3)
+    model.fit(X, y)
+    pred = model.predict(X)
+
+    assert np.all(np.isin(pred,y))
