@@ -26,3 +26,18 @@ def test_prediction_shape():
     pred_ = model.predict(X)
 
     assert pred_.shape == (6,)
+
+def test_tree_root_exists():
+
+    model = DecisionTreeClassifier()
+    model.fit(X, y)
+
+    assert model.root is not None
+
+def test_predictions_are_binary():
+
+    model = DecisionTreeClassifier()
+    model.fit(X, y)
+    pred = model.predict(X)
+
+    assert np.all(np.isin(pred,[0,1]))
