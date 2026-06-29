@@ -31,6 +31,11 @@ def test_prediction_shape():
     model.fit(X, y)
 
     pred = model.predict(X)
-
     assert pred.shape == (4,)
 
+def test_intercept_type():
+
+    model = LinearRegression()
+    model.fit(X, y)
+
+    assert isinstance(model.intercept_, float)
