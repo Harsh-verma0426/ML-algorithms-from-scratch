@@ -34,3 +34,11 @@ def test_coef_shape():
     model.fit(X, y)
 
     assert model.coef_.shape == (1,)
+
+def test_predictions_are_binary():
+
+    model = LogisticRegression()
+    model.fit(X, y)
+    pred = model.predict(X)
+
+    assert np.all(np.isin(pred,[0,1]))
