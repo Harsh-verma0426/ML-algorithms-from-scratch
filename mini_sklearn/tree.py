@@ -134,4 +134,3 @@ class DecisionTreeClassifier:
     mode = Counter(y).most_common(1)[0][0]
 
     return mode
-
