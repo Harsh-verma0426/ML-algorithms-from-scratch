@@ -42,7 +42,7 @@ Detailed implementation notes for each algorithm are available in the `docs/` di
 
 * 📄 [Linear Regression](docs/linear_regression.md)
 * 📄 [Logistic Regression](docs/logistic_regression.md)
-* 📄 [Decision Tree Classifier](docs/decision_tree.md)
+* 📄 [Decision Tree Classifier](docs/decision_tree_classifier.md)
 * 📄 [K-Nearest Neighbors Classifier](docs/knn_classifier.md)
 * 📄 [K-Nearest Neighbors Regressor](docs/knn_regressor.md)
 
