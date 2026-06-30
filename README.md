@@ -1,6 +1,6 @@
-# ML Algorithms
+# mini-sklearn
 
-A lightweight Python library implementing classical machine learning algorithms from first principles using **NumPy**. The goal of this project is to understand how machine learning algorithms work internally while maintaining an API inspired by scikit-learn.
+A lightweight Python library implementing classical machine learning algorithms from first principles using **NumPy**. The project focuses on understanding algorithmic foundations while providing a clean, **scikit-learn-inspired API**.
 
 > **Note:** This project is intended for learning and educational purposes rather than production use.
 
@@ -18,10 +18,10 @@ A lightweight Python library implementing classical machine learning algorithms 
 
 ### Nearest Neighbors
 
-* ✅ K-Nearest Neighbors Regressor
 * ✅ K-Nearest Neighbors Classifier
+* ✅ K-Nearest Neighbors Regressor
 
-### Decision Trees
+### Tree-Based Models
 
 * ✅ Decision Tree Classifier
 
@@ -33,6 +33,18 @@ A lightweight Python library implementing classical machine learning algorithms 
 ### Model Selection
 
 * ✅ Train-Test Split
+
+---
+
+## Documentation
+
+Detailed implementation notes for each algorithm are available in the `docs/` directory.
+
+* 📄 [Linear Regression](docs/linear_regression.md)
+* 📄 [Logistic Regression](docs/logistic_regression.md)
+* 📄 [Decision Tree Classifier](docs/decision_tree.md)
+* 📄 [K-Nearest Neighbors Classifier](docs/knn_classifier.md)
+* 📄 [K-Nearest Neighbors Regressor](docs/knn_regressor.md)
 
 ---
 
@@ -48,7 +60,20 @@ mini_sklearn/
 ├── model_selection.py
 └── __init__.py
 
+docs/
+├── linear_regression.md
+├── logistic_regression.md
+├── decision_tree.md
+├── knn_classifier.md
+└── knn_regressor.md
+
 tests/
+├── test_linear_regression.py
+├── test_logistic_regression.py
+├── test_knn_classifier.py
+├── test_knn_regressor.py
+├── test_decision_tree.py
+└── test_metrics.py
 ```
 
 ---
@@ -58,8 +83,8 @@ tests/
 Clone the repository:
 
 ```bash
-git clone https://github.com/Harsh-verma0426/ML-algorithms-from-scratch.git
-cd ML-algorithms-from-scratch
+git clone https://github.com/Harsh-verma0426/mini-sklearn.git
+cd mini-sklearn
 ```
 
 Create a virtual environment:
@@ -81,16 +106,29 @@ uv sync
 ```python
 from mini_sklearn.linear_model import LinearRegression
 from mini_sklearn.model_selection import train_test_split
+from mini_sklearn.metrics import r2score
 
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 model = LinearRegression(method="gd")
 model.fit(X_train, y_train)
 
-predictions = model.predict(X_test)
-score = model.score(y_test, predictions)
+y_pred = model.predict(X_test)
+score = model.r2score(y_test, y_pred)
 
 print(score)
+```
+
+---
+
+## Testing
+
+The project includes unit tests for implemented algorithms using **pytest**.
+
+Run all tests:
+
+```bash
+python -m pytest
 ```
 
 ---
@@ -101,13 +139,13 @@ print(score)
 
 * [x] Linear Regression
 * [x] Logistic Regression
-* [x] KNN Regressor
-* [x] KNN Classifier
-* [x] Decision Tree
+* [x] K-Nearest Neighbors Classifier
+* [x] K-Nearest Neighbors Regressor
+* [x] Decision Tree Classifier
 * [ ] Random Forest
-* [ ] Naive Bayes
+* [ ] Gaussian Naive Bayes
 * [ ] K-Means
-* [ ] PCA
+* [ ] Principal Component Analysis (PCA)
 * [ ] Ridge Regression
 * [ ] Lasso Regression
 * [ ] Support Vector Machine (SVM)
@@ -120,13 +158,16 @@ print(score)
 * [ ] LabelEncoder
 * [ ] OneHotEncoder
 * [ ] K-Fold Cross Validation
+* [ ] Grid Search
+* [ ] Randomized Search
 
 ### Project Improvements
 
-* [ ] Comprehensive documentation
-* [ ] Unit tests for all algorithms
-* [ ] Benchmark against scikit-learn
-* [ ] Example notebooks
+* [x] Algorithm Documentation
+* [x] Unit Tests
+* [ ] Benchmark Against scikit-learn
+* [ ] Example Notebooks
+* [ ] Continuous Integration (CI)
 
 ---
 
@@ -134,6 +175,6 @@ print(score)
 
 The implementations and concepts in this project are based on the following resources:
 
-* Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow — Aurélien Géron
+* *Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow* — Aurélien Géron
 * NumPy Documentation
 * scikit-learn Documentation
