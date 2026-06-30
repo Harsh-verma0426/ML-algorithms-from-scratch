@@ -1,5 +1,11 @@
 import numpy as np
 from collections import Counter
+from ..utils import (
+    check_X_y,
+    check_X,
+    check_is_fitted,
+    check_feature_count
+)
 
 class Node:
   def __init__(self,
@@ -23,15 +29,26 @@ class DecisionTreeClassifier:
   
   def __init__(self):
     self.root = None
+    self.n_features_in_ = None
+    self.is_fitted_ = False
 
   def fit(self, X, y):
 
+    check_X_y(X, y)
+
     self.root = self._build_tree(X, y)
+
+    self.n_features_in_ = X.shape[1]
+    self.is_fitted_ = True
 
     return self
 
   def predict(self, X):
     
+    check_X(X)
+    check_feature_count(self.n_features_in_, X)
+    check_is_fitted(self.is_fitted_)
+
     return np.array(
       [self._predict_one(sample) for sample in X]
     )
