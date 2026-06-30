@@ -7,5 +7,5 @@ from .validation import (
     check_X_y,
     check_X,
     check_is_fitted,
-    check_feature_count,
+    check_feature_count
 )
