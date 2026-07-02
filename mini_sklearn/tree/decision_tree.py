@@ -4,7 +4,8 @@ from ..utils import (
     check_X_y,
     check_X,
     check_is_fitted,
-    check_feature_count
+    check_feature_count,
+    check_max_features
 )
 
 class Node:
@@ -27,7 +28,8 @@ class Node:
 
 class DecisionTreeClassifier:
   
-  def __init__(self):
+  def __init__(self, max_features=None):
+    self.max_features = max_features
     self.root = None
     self.n_features_in_ = None
     self.is_fitted_ = False
@@ -35,6 +37,7 @@ class DecisionTreeClassifier:
   def fit(self, X, y):
 
     check_X_y(X, y)
+    check_max_features(self.max_features, X)
 
     self.root = self._build_tree(X, y)
 
@@ -106,7 +109,12 @@ class DecisionTreeClassifier:
     best_gain = -1
     parent_entropy = self._entropy(y)
 
-    for feature in range(X.shape[1]):
+    if self.max_features is None:
+      features = np.arange(X.shape[1])
+    else:
+      features = np.random.choice(X.shape[1], size=self.max_features, replace=False)
+
+    for feature in features:
       
       thresholds = np.unique(X[:, feature])
 
