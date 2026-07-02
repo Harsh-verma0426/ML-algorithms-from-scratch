@@ -59,7 +59,7 @@ class RandomForestClassifier:
         check_is_fitted(self.is_fitted_)
 
         all_predictions = np.array(
-            [tree.predict(X) for tree in self.tree_]
+            [tree.predict(X) for tree in self.trees_]
         )
         
         all_predictions = all_predictions.T
