@@ -52,3 +52,15 @@ def check_feature_count(features, X):
         raise ValueError(
             f"X has {X.shape[1]} features, but the model was fitted with {features} features."
         )
+    
+def check_max_features(max_features, X):
+
+    if max_features is not None and max_features <= 0:
+        raise ValueError(
+            "max_features must be a positive integer."
+        )
+
+    if max_features is not None and max_features > X.shape[1]:
+        raise ValueError(
+            f"max_features={max_features} is greater than the number of features ({X.shape[1]})."
+        )
